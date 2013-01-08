@@ -35,6 +35,7 @@ class ntp::params {
 
   $service = $::operatingsystem ? {
     /(?i:Debian|Ubuntu|Mint|Solaris)/ => 'ntp',
+    /(?i:SLES|OpenSuSE)/              => 'ntp',
     default                           => 'ntpd',
   }
 
@@ -43,7 +44,7 @@ class ntp::params {
   }
 
   $process = $::operatingsystem ? {
-    default => 'ntp',
+    default => 'ntpd',
   }
 
   $process_args = $::operatingsystem ? {
